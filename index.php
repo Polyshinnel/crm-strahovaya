@@ -1,28 +1,34 @@
-<?php
-mb_internal_encoding( 'UTF-8'); 
-mb_regex_encoding( 'UTF-8');  
-ini_set('default_charset','utf-8');
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/styles/style.css">
+    <title>CRM</title>
+</head>
+<body>
+    <div class="elems-wrapper">
+        <div class="elems-columns">
+            <div class="card-elem" draggable="true" data-item="id=1">
+                <p class="card-elem__customer">Кто запросил экспертизу</p>
+                <h4 class="card-elem__name">Название экспертизы</h4>
+                <p class="card-elem__date">Дата экспертизы</p>
+            </div>
 
-$filename = '/home/admin/web/518693-cm50173.tmweb.ru/public_html/sample.pdf';
-$text = shell_exec('pdftotext '.$filename.' -'); //тире в конце вывода содержимого
-
-//$text = preg_replace("/[^a-zа-яё0-9\s]/i", '', $text);
-$array = preg_split('/(\s)/', $text);
-$array = array_diff($array, array(''));
-
-$number = $array[10];
-$data = $array[11];
-$second_name = $array[48];
-$first_name = $array[49];
-$third_name = $array[50];
-
-echo $number;
-echo "<br>";
-echo $data;
-echo "<br>";
-echo $second_name;
-echo "<br>";
-echo $first_name;
-echo "<br>";
-echo $third_name;
-echo "<br>";
+            <div class="card-elem" draggable="true" data-item="id=2">
+                <p class="card-elem__customer">Кто запросил экспертизу</p>
+                <h4 class="card-elem__name">Название экспертизы 1</h4>
+                <p class="card-elem__date">Дата экспертизы</p>
+            </div>
+        </div>
+        <div class="elems-columns"></div>
+        <div class="elems-columns"></div>
+        <div class="elems-columns"></div>
+    </div>
+    <script src="assets/js/main.js"></script>
+</body>
+</html>

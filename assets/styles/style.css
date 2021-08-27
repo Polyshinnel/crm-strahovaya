@@ -1,0 +1,56 @@
+* {
+  padding: 0;
+  margin: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+}
+
+.elems-columns {
+  width: 275px;
+  height: 100vh;
+  background: #D9D7D7;
+}
+
+.elems-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.elems-columns + .elems-columns {
+  margin-left: 10px;
+}
+
+.card-elem {
+  width: 100%;
+  padding: 15px;
+  background: #C4C4C4;
+}
+
+.card-elem .card-elem__customer {
+  font-size: 10px;
+}
+
+.card-elem .card-elem__name {
+  margin-top: 15px;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.card-elem .card-elem__date {
+  margin-top: 15px;
+  font-size: 10px;
+}
+
+.card-elem:hover {
+  cursor: pointer;
+}
+
+.card-elem + .card-elem {
+  margin-top: 8px;
+}
+/*# sourceMappingURL=style.css.map */
