@@ -1,0 +1,52 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'Roboto', sans-serif;
+}
+
+.elems-columns{
+    width: 275px;
+    height: 100vh;
+    background: #D9D7D7;
+}
+
+.elems-wrapper{
+    display: flex;
+}
+
+.elems-columns+.elems-columns{
+    margin-left: 10px;
+}
+
+.card-elem{
+    width: 100%;
+    padding: 15px;
+    background: #C4C4C4;
+}
+
+.card-elem__customer{
+    font-size: 10px;
+}
+
+.card-elem__name{
+    margin-top: 15px;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.card-elem__date{
+    margin-top: 15px;
+    font-size: 10px;
+}
+
+.card-elem+.card-elem{
+    margin-top: 8px;
+}
+
+.card-elem:hover{
+    cursor: pointer;
+}
