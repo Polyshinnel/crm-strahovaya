@@ -1,8 +1,49 @@
 "use strict";
 
+//Реализация боковой прокрутки колонок
+const slider = document.querySelector('.elems-wrapper');
+let isDown = false;
+let startX;
+let scrollLeft;
+
+slider.addEventListener('mousedown', e => {
+  isDown = true;
+  slider.classList.add('active');
+  startX = e.pageX - slider.offsetLeft;
+  scrollLeft = slider.scrollLeft;
+});
+slider.addEventListener('mouseleave', () => {
+  isDown = false;
+  slider.classList.remove('active');
+});
+slider.addEventListener('mouseup', () => {
+  isDown = false;
+  slider.classList.remove('active');
+});
+slider.addEventListener('mousemove', e => {
+  console.log(isDown);
+  if (!isDown){
+    return e.preventDefault();
+  }
+  
+  const x = e.pageX - slider.offsetLeft;
+  const walk = (x - startX) * 1;
+  slider.scrollLeft = scrollLeft - walk;
+});
+
+function clearSelection() {
+    if (window.getSelection) {
+        window.getSelection().removeAllRanges();
+    } else {
+        document.selection.empty();
+    }
+}
+
+//Реализация drag'n'drop карточек
 let elems = document.querySelectorAll('.card-elem');
-let columns = document.querySelectorAll('.elems-columns');
+let columns = document.querySelectorAll('.elems-columns__wrapper');
 let current;
+
 
 
 
@@ -11,6 +52,10 @@ elems.forEach(function(elem){
         current = this;
         let idNumber = current.dataset.item;
         event.dataTransfer.setData('text',idNumber);
+    });
+    elem.addEventListener('dragstart',function(event){
+        slider.classList.remove('active');
+        isDown = false;
     });
 });
 
@@ -30,6 +75,8 @@ columns.forEach(function(column){
         console.log(event.dataTransfer.getData('text'));
         this.style.background = '#D9D7D7';
         this.append(current);
+        slider.classList.remove('active');
+        isDown = false;
     });
 });
 

@@ -1,3 +1,9 @@
+<?php
+
+require './controllers/stages/getStages.php';
+require './controllers/deals/getDeals.php';
+
+?>
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -12,23 +18,26 @@
 </head>
 <body>
     <div class="elems-wrapper">
+        <?php foreach($stages as $stage){ ?>
         <div class="elems-columns">
-            <div class="card-elem" draggable="true" data-item="id=1">
-                <p class="card-elem__customer">Кто запросил экспертизу</p>
-                <h4 class="card-elem__name">Название экспертизы</h4>
-                <p class="card-elem__date">Дата экспертизы</p>
+            <div class="elems-columns__header" style="border-color:<?php echo $stage['color']; ?>;">
+                <p class="elems-columns__header-text"><?php echo $stage['name']; ?></p>
             </div>
-
-            <div class="card-elem" draggable="true" data-item="id=2">
-                <p class="card-elem__customer">Кто запросил экспертизу</p>
-                <h4 class="card-elem__name">Название экспертизы 1</h4>
-                <p class="card-elem__date">Дата экспертизы</p>
+            <div class="elems-columns__wrapper" data-item="<?php echo $stage['id']; ?>">
+                <?php foreach($deals as $deal){ ?>
+                    <?php if($deal['id_stage'] == $stage['id']){ ?>
+                        <div class="card-elem" draggable="true" data-item="<?php echo $deal['id']; ?>">
+                            <p class="card-elem__customer"><?php echo $deal['type']; ?></p>
+                            <h4 class="card-elem__name"><?php echo $deal['name']; ?></h4>
+                            <p class="card-elem__date"><?php echo $deal['date']; ?></p>
+                        </div>
+                    <?php } ?>
+                <?php } ?>
             </div>
         </div>
-        <div class="elems-columns"></div>
-        <div class="elems-columns"></div>
-        <div class="elems-columns"></div>
+        <?php } ?>
     </div>
+    
     <script src="assets/js/main.js"></script>
 </body>
 </html>

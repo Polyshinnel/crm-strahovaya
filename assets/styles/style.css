@@ -9,16 +9,50 @@ body {
   font-family: 'Roboto', sans-serif;
 }
 
+.elems-wrapper {
+  overflow: hidden;
+  overflow-x: scroll;
+  white-space: nowrap;
+}
+
+.elems-wrapper.active {
+  cursor: -webkit-grabbing;
+  cursor: grabbing;
+}
+
 .elems-columns {
-  width: 275px;
+  width: 270px;
   height: 100vh;
+  display: inline-block;
+  vertical-align: top;
   background: #D9D7D7;
 }
 
-.elems-wrapper {
+.elems-columns .elems-columns__wrapper {
+  width: 100%;
+  height: 100%;
+}
+
+.elems-columns .elems-columns__header {
+  width: 100%;
+  height: 50px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-bottom: 15px;
+  border-bottom: 3px solid #000;
+}
+
+.elems-columns .elems-columns__header .elems-columns__header-text {
+  text-transform: uppercase;
+  font-size: 18px;
+  font-weight: 500;
 }
 
 .elems-columns + .elems-columns {
@@ -29,6 +63,7 @@ body {
   width: 100%;
   padding: 15px;
   background: #C4C4C4;
+  white-space: normal;
 }
 
 .card-elem .card-elem__customer {
