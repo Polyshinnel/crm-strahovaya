@@ -2,8 +2,8 @@
 
 $dbinfo = [
     'host' => 'localhost',
-    'db' => 'basename',
-    'user' => 'username',
-    'password' => 'password',
+    'db' => 'admin_crm',
+    'user' => 'admin_crm',
+    'password' => 'Adreno_330',
     'charset' => 'utf8'
 ];

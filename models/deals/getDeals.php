@@ -6,7 +6,7 @@ class GetDeals
     public function __construct()
     {
         include './connectDB.php';
-        $this->db = new PDO('mysql:host=' . $dbinfo['host'] . ';dbname=' . $dbinfo['db'], $dbinfo['user'], $dbinfo['password']);
+        $this->db = new PDO('mysql:host=' . $dbinfo['host'] . ';dbname=' . $dbinfo['db'].';charset=utf8', $dbinfo['user'], $dbinfo['password']);
     }
 
     public function getDeals(){

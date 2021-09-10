@@ -28,7 +28,7 @@ require './controllers/deals/getDeals.php';
                     <?php if($deal['id_stage'] == $stage['id']){ ?>
                         <div class="card-elem" draggable="true" data-item="<?php echo $deal['id']; ?>">
                             <p class="card-elem__customer"><?php echo $deal['type']; ?></p>
-                            <h4 class="card-elem__name"><?php echo $deal['name']; ?></h4>
+                            <a href="deal.php?id=<?php echo $deal['id']; ?>"><h4 class="card-elem__name"><?php echo $deal['name']; ?></h4></a>
                             <p class="card-elem__date"><?php echo $deal['date']; ?></p>
                         </div>
                     <?php } ?>
